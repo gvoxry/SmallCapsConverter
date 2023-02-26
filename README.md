@@ -1,5 +1,5 @@
 # SmallCapsConverter
-Simple Python application that converts regular text to small caps text.
+Simple Python GUI that converts regular text to small caps text.
 
 ## Preview
 ![Small Caps Converter Preview](https://i.imgur.com/7aQiLUM.png)
