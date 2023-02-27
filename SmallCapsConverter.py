@@ -37,6 +37,7 @@ def copy_output_to_clipboard():
 window = tk.Tk()
 window.title("Small Caps Converter") 
 window.configure(bg="#242424")
+window.bind('<Shift-Return>', convert_to_small_caps)
 
 # App width and height
 app_w = 600
@@ -60,7 +61,6 @@ input_label = tk.Label(window, text="Input:", font=("Consolas"), fg="white", bg=
 input_label.grid(row=0, column=0, padx=10, pady=10)
 input_text_box = tk.Text(window, width=53, height=5, font=("Consolas", 12), bg="#424242", fg="white", bd=0)
 input_text_box.grid(row=0, column=1, padx=10, pady=10)
-input_text_box.bind('<Shift-Return>', convert_to_small_caps)
 
 
 # Output label and text box
