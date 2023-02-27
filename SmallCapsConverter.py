@@ -2,9 +2,26 @@ import tkinter as tk
 import pyperclip
 
 # Convert text
+SMALL_CAPS_MAP = {
+    'a': 'ᴀ', 'b': 'ʙ', 'c': 'ᴄ', 'd': 'ᴅ', 'e': 'ᴇ', 'f': 'ғ',
+    'g': 'ɢ', 'h': 'ʜ', 'i': 'ɪ', 'j': 'ᴊ', 'k': 'ᴋ', 'l': 'ʟ',
+    'm': 'ᴍ', 'n': 'ɴ', 'o': 'ᴏ', 'p': 'ᴘ', 'q': 'ǫ', 'r': 'ʀ',
+    's': 's', 't': 'ᴛ', 'u': 'ᴜ', 'v': 'ᴠ', 'w': 'ᴡ', 'x': 'x',
+    'y': 'ʏ', 'z': 'ᴢ'
+}
+
 def convert_to_small_caps(event=None):
     input_text = input_text_box.get("1.0", "end-1c")
-    output_text = input_text.lower().replace("a", "ᴀ").replace("b", "ʙ").replace("c", "ᴄ").replace("d", "ᴅ").replace("e", "ᴇ").replace("f", "ꜰ").replace("g", "ɢ").replace("h", "ʜ").replace("i", "ɪ").replace("j", "ᴊ").replace("k", "ᴋ").replace("l", "ʟ").replace("m", "ᴍ").replace("n", "ɴ").replace("o", "ᴏ").replace("p", "ᴘ").replace("q", "ǫ").replace("r", "ʀ").replace("s", "s").replace("t", "ᴛ").replace("u", "ᴜ").replace("v", "ᴠ").replace("w", "ᴡ").replace("x", "x").replace("y", "ʏ").replace("z", "ᴢ")
+    output_text = ""
+    i = 0
+    while i < len(input_text):
+        if input_text[i:i+2] in ("&a", "&b", "&c", "&d", "&e", "&f", "&k", "&l", "&m", "&n", "&o", "&r"):
+            output_text += input_text[i:i+2]
+            i += 2
+        else:
+            char = input_text[i].lower()
+            output_text += SMALL_CAPS_MAP.get(char, char)
+            i += 1
     output_text_box.config(state="normal")
     output_text_box.delete("1.0", tk.END)
     output_text_box.insert("1.0", output_text)
