@@ -11,6 +11,7 @@ SMALL_CAPS_MAP = {
 }
 
 def convert_to_small_caps(event=None):
+    input_text_box.config(state="disabled")
     input_text = input_text_box.get("1.0", "end-1c")
     output_text = ""
     i = 0
@@ -22,11 +23,14 @@ def convert_to_small_caps(event=None):
             char = input_text[i].lower()
             output_text += SMALL_CAPS_MAP.get(char, char)
             i += 1
+    output_text = "\n".join(line for line in output_text.split("\n") if line.strip())
     output_text_box.config(state="normal")
     output_text_box.delete("1.0", tk.END)
     output_text_box.insert("1.0", output_text)
     output_text_box.config(state="disabled")
-    pyperclip.copy(output_text)
+    if output_text.strip():
+        pyperclip.copy(output_text)
+    input_text_box.config(state="normal")
 
 # Copy text
 def copy_output_to_clipboard():
