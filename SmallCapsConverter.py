@@ -11,7 +11,7 @@ SMALL_CAPS_MAP = {
 }
 
 def convert_to_small_caps(event=None):
-    input_text_box.config(state="disabled")
+
     input_text = input_text_box.get("1.0", "end-1c")
     output_text = ""
     i = 0
@@ -23,14 +23,11 @@ def convert_to_small_caps(event=None):
             char = input_text[i].lower()
             output_text += SMALL_CAPS_MAP.get(char, char)
             i += 1
-    output_text = "\n".join(line for line in output_text.split("\n") if line.strip())
     output_text_box.config(state="normal")
     output_text_box.delete("1.0", tk.END)
     output_text_box.insert("1.0", output_text)
     output_text_box.config(state="disabled")
-    if output_text.strip():
-        pyperclip.copy(output_text)
-    input_text_box.config(state="normal")
+    pyperclip.copy(output_text)
 
 # Copy text
 def copy_output_to_clipboard():
@@ -41,7 +38,7 @@ def copy_output_to_clipboard():
 window = tk.Tk()
 window.title("Small Caps Converter") 
 window.configure(bg="#242424")
-window.bind('<Shift-Return>', convert_to_small_caps)
+window.bind('<Control-c>', convert_to_small_caps)
 
 # App width and height
 app_w = 600
@@ -79,7 +76,7 @@ convert_button = tk.Button(window, text="Convert", cursor="hand2", command=conve
 convert_button.place(x=100, y=240)
 copy_button = tk.Button(window, text="Copy to Clipboard", cursor="hand2", command=copy_output_to_clipboard, font=("Consolas", 12), padx=10, pady=10, bg="#007acc", activebackground="#00367D", activeforeground="white", bd=0, fg="white")
 copy_button.place(x=200, y=240)
-enter_key = tk.Label(window, text="Press Shift + Enter to Convert and Copy without using the buttons", font=("Consolas"), fg="white", bg="#242424")
+enter_key = tk.Label(window, text="Press CTRL + C to Convert and Copy without using the buttons", font=("Consolas"), fg="white", bg="#242424")
 enter_key.place(x=5, y=300)
 
 # GUI loop
