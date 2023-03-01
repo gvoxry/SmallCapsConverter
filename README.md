@@ -20,4 +20,4 @@ pip install tk
 4. Enter the text you want to convert in the "Input" text box.
 5. Click the "Convert" button to convert the text to small caps.
 6. To copy the converted text to the clipboard, click the "Copy to Clipboard" button.
-7. Optionally, you can press Shift + Enter to automatically copy the converted text to the clipboard.
+7. Optionally, you can press Ctrl + C to automatically copy the converted text to the clipboard.
