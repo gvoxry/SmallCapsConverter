@@ -2,7 +2,7 @@
 Simple Python GUI that converts regular text to small caps text.
 
 ## Preview
-![Small Caps Converter Preview](https://i.imgur.com/7aQiLUM.png)
+![Preview](https://user-images.githubusercontent.com/59362190/222100835-5272ba20-5852-4442-ac98-8862d9c9927b.png)
 
 ## Requirements
 - [Python 3](https://www.python.org/downloads/)  
