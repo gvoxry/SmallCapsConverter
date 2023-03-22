@@ -20,8 +20,11 @@ def convert_to_small_caps(event=None):
             output_text += input_text[i:i+2]
             i += 2
         else:
-            char = input_text[i].lower()
-            output_text += SMALL_CAPS_MAP.get(char, char)
+            char = input_text[i]
+            if char.isupper():
+                output_text += char
+            else:
+                output_text += SMALL_CAPS_MAP.get(char.lower(), char)
             i += 1
     output_text_box.config(state="normal")
     output_text_box.delete("1.0", tk.END)
